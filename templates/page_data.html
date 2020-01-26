@@ -3,13 +3,18 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Bootstrap Visualization Dashboard</title>
+  <title>World Happiness Report</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
-
- <!--style.css-->
+  <!-- Load CSS -->
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <!-- Icon for the webpage -->
+  <link rel="icon" type="image" href="https://cdn11.bigcommerce.com/s-sq9zkarfah/images/stencil/608x608/products/94081/189422/Smiley-Happy-Face-Jdm-Japanese-2-Decal-Sticker__77985.1511154602.jpg?c=2">
+   <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <!-- Load d3.js-->
+  <script src="https://d3js.org/d3.v5.js"></script>
 </head>
 
 <body>
@@ -54,10 +59,10 @@
 <!-- Data from csv displayed as table-->
 <div class="container">
   <div class="box">
-    <!-- <table id='myTable'></table> -->
     <h3 class="title">Data</h3>
     <hr /> 
-    <p>The following table includes the data(2019) used for plotting during this project.</p>
+    <p>The following table includes the data(2019) used for this project.</p>
+    <!-- User input for filter condition on the field country -->
     <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for a country..">
     <table class="table table-bordered table-striped table-hover table-condensed", id="myTable">
       <!-- <table class="table table-bordered table-hover table-condensed"> -->
