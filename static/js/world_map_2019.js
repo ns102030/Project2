@@ -27,7 +27,7 @@ var data = [{
       geo: {
           projection: {
               type: 'robinson'
-          }
+          }   
       }
     };
 
