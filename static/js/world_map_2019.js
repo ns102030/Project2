@@ -10,7 +10,7 @@ d3.json("http://localhost:5000/worldmap_data").then(function(data){
     // console.log(country_data);
     // console.log(score_data);
 
-var data = [{
+    var data = [{
             type: 'choropleth',
             locationmode: 'country names',
             locations: country_data,
