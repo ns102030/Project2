@@ -4,9 +4,26 @@ function(err, rows){
           return rows.map(function(row) { return row[key]; });
       }
 
+////////////////////////////////
+///////////////////////////////
+      // Converting GDP data into float number
+      var gdp_temp = unpack(rows,'gdp_per_capita');
+      var gdp = [];
+
+      for(var i in gdp_temp)
+        gdp.push(parseFloat(gdp_temp [i]));
+    //   console.log(gdp);
+
+      // Multiplying GDP array by 30 to make size larger
+      var gdp_size = gdp.map(function(element) {
+        return element*20;
+    });
+////////////////////////////////
+///////////////////////////////
+
       // GDP vs Score
       var trace1 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows,'score'),
         y: unpack(rows, 'gdp_per_capita'),
         text: unpack(rows, 'country'),
@@ -36,7 +53,7 @@ function(err, rows){
 
       // Social Support vs Score
       var trace2 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows,'score'),
         y: unpack(rows, 'social_support'),
         text: unpack(rows, 'country'),
@@ -44,7 +61,7 @@ function(err, rows){
         opacity: 0.8,
         marker: {
             color: 'rgb(149, 222, 220)',
-            size: 10,
+            size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
                 width: 1
@@ -66,7 +83,7 @@ function(err, rows){
 
       // Health Life Expectancy vs Score
       var trace3 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows,'score'),
         y: unpack(rows, 'health_life_expectancy'),
         text: unpack(rows, 'country'),
@@ -74,7 +91,7 @@ function(err, rows){
         opacity: 0.8,
         marker: {
             color: 'rgb(149, 188, 222)',
-            size: 10,
+            size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
                 width: 1
@@ -95,7 +112,7 @@ function(err, rows){
 
       // Freedom to Make Life Choices vs Score
       var trace4 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows,'score'),
         y: unpack(rows, 'freedom_to_make_life_choices'),
         text: unpack(rows, 'country'),
@@ -103,7 +120,7 @@ function(err, rows){
         opacity: 0.8,
         marker: {
             color: 'rgb(149, 152, 222)',
-            size: 10,
+            size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
                 width: 1
@@ -124,7 +141,7 @@ function(err, rows){
 
       // Generosity vs Score
       var trace5 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows,'score'),
         y: unpack(rows, 'freedom_to_make_life_choices'),
         text: unpack(rows, 'country'),
@@ -132,7 +149,7 @@ function(err, rows){
         opacity: 0.8,
         marker: {
             color: 'rgb(183, 149, 222)',
-            size: 10,
+            size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
                 width: 1
@@ -153,7 +170,7 @@ function(err, rows){
 
       // Perceptions of Corruption vs Score
       var trace6 = [{
-        type: 'scatter',
+        // type: 'scatter',
         x: unpack(rows, 'score'),
         y: unpack(rows,'perceptions_of_corruption'),
         text: unpack(rows, 'country'),
@@ -161,7 +178,7 @@ function(err, rows){
         opacity: 0.8,
         marker: {
             color: 'rgb(219, 149, 222)',
-            size: 10,
+            size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
                 width: 1
