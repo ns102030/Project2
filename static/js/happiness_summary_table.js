@@ -1,7 +1,7 @@
 function summary_table(data,country_val,year_val)
 {
-    console.log("I am in function_2 for summary table");
-    console.log("year change value passed:",year_val);
+    // console.log("I am in function_2 for summary table");
+    // console.log("year change value passed:",year_val);
 
     
         for (i=0;i<data.length;i++){
