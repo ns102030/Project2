@@ -1,7 +1,7 @@
 function summary_table(data,country_val,year_val)
 {
-    // console.log("I am in function_2 for summary table");
-    // console.log("year change value passed:",year_val);
+    console.log("I am in function_2 for summary table");
+    console.log("year change value passed:",year_val);
 
     
         for (i=0;i<data.length;i++){
@@ -20,7 +20,7 @@ function summary_table(data,country_val,year_val)
                 
         var data_array=[['Country','Rank','Score','Region','GDP','Health Life Expectancy','Freedom','Trust Government Corruption','Generosity'],
                         [country,rank,score,region,gdp,life_expt,freedom,corruption,generosity]];
-    // console.log(generosity);
+    console.log(generosity);
     var data = [{
         type: 'table',
         columnorder: [1,2],
