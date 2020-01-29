@@ -1,6 +1,6 @@
 
 function world_map(data,year_val){
-    console.log("I am in world_map function2");
+    // console.log("I am in world_map function2");
     console.log(year_val);
     country_data=[];
     score_data_2015=[];

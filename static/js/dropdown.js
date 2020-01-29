@@ -42,6 +42,42 @@ function build_summary_table(year_val,country_val){
 
 }
 
+//Define and choose data to build Guage Chart
+function build_guage_chart(year_val,country_val){
+    console.log("I am in the define-function for guage");
+    if(year_val==2015){
+        d3.json("http://localhost:5000/2015_data").then ( data =>{
+            guage(data,country_val,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2016){
+        d3.json("http://localhost:5000/2016_data").then ( data =>{
+            guage(data,country_val,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2017){
+        d3.json("http://localhost:5000/2017_data").then ( data =>{
+            guage(data,country_val,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2018){
+        d3.json("http://localhost:5000/2018_data").then ( data =>{
+            guage(data,country_val,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2019){
+        d3.json("http://localhost:5000/2019_data").then ( data =>{
+            guage(data,country_val,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+
+}
+
 
 function init() {
     var selectorTwo = d3.select("#selDatasetYear");
@@ -88,6 +124,8 @@ function optionChangedOne(selectedYear) {
     // console.log(selectedCountry);
     // console.log("Year change value",year_change_value)
     build_summary_table(year_change_value,selectedCountry);
+    console.log("Guage Chart call");
+    build_guage_chart(year_change_value,selectedCountry)
   }
 
 init();

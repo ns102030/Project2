@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>World Happiness Visualization</title>
+  <title>World Happiness Dashboard</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <!-- Load d3.js-->
@@ -20,6 +20,14 @@
   <script src="https://cdn.anychart.com/releases/v8/js/anychart-circular-gauge.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+  <style type="text/css">
+    #guage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+</style> 
 </head>
 
 <body>
@@ -39,7 +47,7 @@
     </div>
   </header>
   
-  <!-- <div class="container-fluid"> -->
+  <div class="container-fluid">
     <div class="row">
       <div class="col"> 
         <div id='myDiv'>
@@ -47,10 +55,9 @@
           <script type="text/javascript" src="/static/js/happiness_world_map.js"></script>
         </div>
       </div>
-      
-
     </div>
-      <div class="row">
+
+    <div class="row">
           <div class="col"> 
           <!-- Summary Table JS -->
             <div id="summary_table">
@@ -58,6 +65,16 @@
             </div>
          </div>
       </div>  
+
+      <div class="row">
+        <div class="col">
+          <!-- Guage Chart -->
+          <div id="guage">
+            <script type="text/javascript" src="/static/js/happiness_guage.js"></script>
+          </div>
+        </div>
+      </div>
+
   </div>
 
   <script type="text/javascript" src="/static/js/dropdown.js"></script>
