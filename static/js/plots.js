@@ -1,4 +1,5 @@
-function plots(data,country_val,year_val){
+function plots(data,year_val){
+    console.log("I am in function2 for plots");
     score=[];
     gdp_temp=[];
     country=[];
@@ -35,7 +36,8 @@ function plots(data,country_val,year_val){
         x: score,
         y: gdp,
         text: country,
-        mode: 'markers+text',
+        // type:scatter,
+        mode: 'markers',
         opacity: 0.8,
         marker: {
             color: 'rgb(149, 222, 183)',

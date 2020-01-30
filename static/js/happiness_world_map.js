@@ -1,7 +1,7 @@
 
 function world_map(data,year_val){
-    // console.log("I am in world_map function2");
-    console.log(year_val);
+    console.log("I am in world_map function2");
+    // console.log(year_val);
     country_data=[];
     score_data_2015=[];
     score_data_2016=[];
@@ -17,8 +17,8 @@ function world_map(data,year_val){
             score_data_2018.push(data[i].score_2018);
             score_data_2019.push(data[i].score_2019);    
     }
-    console.log(score_data_2019);
-    console.log(score_data_2019);
+    // console.log(score_data_2019);
+    // console.log(score_data_2019);
     // width: 600,height: 600,
 
     if(year_val ==2015){
