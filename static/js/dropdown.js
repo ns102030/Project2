@@ -78,6 +78,40 @@ function build_guage_chart(year_val,country_val){
 
 }
 
+//Define and choose data to build Plots - Irais
+function build_plots(year_val){
+    if(year_val==2015){
+        d3.json("http://localhost:5000/2015_data").then ( data =>{
+            plots(data,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2016){
+        d3.json("http://localhost:5000/2016_data").then ( data =>{
+            plots(data,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2017){
+        d3.json("http://localhost:5000/2017_data").then ( data =>{
+            plots(data,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2018){
+        d3.json("http://localhost:5000/2018_data").then ( data =>{
+            plots(data,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2019){
+        d3.json("http://localhost:5000/2019_data").then ( data =>{
+            plots(data,year_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+}
+
 
 function init() {
     var selectorTwo = d3.select("#selDatasetYear");
@@ -95,7 +129,7 @@ function init() {
     var selectorThree = d3.select('#selDatasetCountry');
     d3.json("http://localhost:5000/countries").then((country_data) => {
     country_data.forEach((rec) => {
-        country_value=rec.country;
+        country_value=rec.country_name;
         // console.log(country_value);
 		selectorThree
         .append("option")
@@ -106,7 +140,8 @@ function init() {
     })
     build_world_map(2019);
     build_summary_table(2019,"United States");
-    // build_guage_chart(2019,"United States");
+    build_guage_chart(2019,"United States");
+    build_plots(2019);
    
 }
 
@@ -116,6 +151,7 @@ function optionChangedOne(selectedYear) {
     // console.log(selectedYear);
     d3.select('#myDiv').html("");
     build_world_map(selectedYear);
+    // build_plots(selectedYear);
     
   }
   
@@ -127,7 +163,8 @@ function optionChangedOne(selectedYear) {
     console.log("summary table call");
     build_summary_table(year_change_value,selectedCountry);
     console.log("Guage Chart call");
-    build_guage_chart(year_change_value,selectedCountry)
+    build_guage_chart(year_change_value,selectedCountry);
+    build_plots(year_change_value,selectedCountry);
   }
 
 init();

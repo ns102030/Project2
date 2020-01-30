@@ -6,9 +6,12 @@ function guage(data,country_val,year_val)
                 }
             }   
         console.log("Score for Gauge:",score);
-        anychart.onDocumentReady(function () {
+        value1=score.toFixed(2);
+        anychart.onDocumentLoad(function () {
+                
                 console.log("Inside Gauge chart func");
                 var gauge = anychart.gauges.circular();
+                
                                 gauge.fill('#fff')
                                         .stroke(null)
                                         .padding(0)
@@ -36,7 +39,7 @@ function guage(data,country_val,year_val)
                                         .width(1)
                                         .ticks({type: 'line', fill: 'white', length: 2});
                                        
-                                value1=score.toFixed(2);
+                                
                                 //  // Set Chart Title
                                 gauge.title()
                                         .enabled(true)
@@ -114,10 +117,13 @@ function guage(data,country_val,year_val)
                                         .offsetY('68%')
                                         .offsetX(155)
                                         .anchor('center');
-
+                                
                                 gauge.container('guage');
+                                // guage.refresh(viewId);
                                 gauge.draw();
                                 
+
+                                                              
                         
 });
 }
