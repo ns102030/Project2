@@ -134,80 +134,80 @@ function updatePlot() {
         } else {
             var topTen = data[1].slice(0, 10);   
             }
-            var countries = [];
-            var scores = [];
-            var regions_selYear = [];
-            var allRegions = [];
-    
-            for (entry in topTen) {
-                for (regions in entriesWithRegions_2015) {
-                    if (!allRegions.includes(entriesWithRegions_2015[regions].region)) {
-                        allRegions.push(entriesWithRegions_2015[regions].region)
-                    }
-                    if (topTen[entry].country == entriesWithRegions_2015[regions].country) {
-                        topTen[entry].region = entriesWithRegions_2015[regions].region;
-                    }
-                }
-                countries.push(topTen[entry].country);
-                scores.push(topTen[entry].score);
-                regions_selYear.push(topTen[entry].region);
-            }
+        var countries = [];
+        var scores = [];
+        var regions_selYear = [];
+        var allRegions = [];
 
-            var trace1 = {
-                x: scores.reverse(),
-                y: countries.reverse(),
-                text: regions_selYear.reverse(),
-                marker: {},
-                type: "bar",
-                orientation: "h"
-            }
-            trace1.marker.color = trace1.text.map(function(region) {
-                switch(region) {
-                    case "Western Europe":
-                        return "rgba(114, 147, 203, 1)";
-    
-                    case "North America":
-                        return "rgba(225, 151, 76, 1)";
-    
-                    case "Australia and New Zealand":
-                        return "rgba(132, 186, 91, 1)";
-    
-                    case "Middle East and Northern Africa":
-                        return "rgba(211, 94, 96, 1)";
-    
-                    case "Latin America and Caribbean":
-                        return "rgba(128, 133, 133, 1)";
-    
-                    case "Southeastern Asia":
-                        return "rgba(144, 103, 167, 1)";
-    
-                    case "Central and Eastern Europe":
-                        return "rgba(171, 104, 87, 1)";
-    
-                    case "Eastern Asia":
-                        return "rgba(204, 194, 16, 1)";
-    
-                    case "Sub-Saharan Africa":
-                        return "#a05195";
-    
-                    case "Southern Asia":
-                        return "#ff7c43";
-    
-    
-                    default:
-                        return "yellow"
+        for (entry in topTen) {
+            for (regions in entriesWithRegions_2015) {
+                if (!allRegions.includes(entriesWithRegions_2015[regions].region)) {
+                    allRegions.push(entriesWithRegions_2015[regions].region)
                 }
-        })
-            // Restyle plots with new data
-        
-            Plotly.restyle("bar", "x", [trace1.x]);
-        
-            Plotly.restyle("bar", "y", [trace1.y]);
-        
-            Plotly.restyle("bar", "text", [trace1.text]);
+                if (topTen[entry].country == entriesWithRegions_2015[regions].country) {
+                    topTen[entry].region = entriesWithRegions_2015[regions].region;
+                }
+            }
+            countries.push(topTen[entry].country);
+            scores.push(topTen[entry].score);
+            regions_selYear.push(topTen[entry].region);
+        }
 
-            Plotly.restyle("bar", "marker", [trace1.marker]);
-        })
-    };
+        var trace1 = {
+            x: scores.reverse(),
+            y: countries.reverse(),
+            text: regions_selYear.reverse(),
+            marker: {},
+            type: "bar",
+            orientation: "h"
+        }
+        trace1.marker.color = trace1.text.map(function(region) {
+            switch(region) {
+                case "Western Europe":
+                    return "rgba(114, 147, 203, 1)";
+
+                case "North America":
+                    return "rgba(225, 151, 76, 1)";
+
+                case "Australia and New Zealand":
+                    return "rgba(132, 186, 91, 1)";
+
+                case "Middle East and Northern Africa":
+                    return "rgba(211, 94, 96, 1)";
+
+                case "Latin America and Caribbean":
+                    return "rgba(128, 133, 133, 1)";
+
+                case "Southeastern Asia":
+                    return "rgba(144, 103, 167, 1)";
+
+                case "Central and Eastern Europe":
+                    return "rgba(171, 104, 87, 1)";
+
+                case "Eastern Asia":
+                    return "rgba(204, 194, 16, 1)";
+
+                case "Sub-Saharan Africa":
+                    return "#a05195";
+
+                case "Southern Asia":
+                    return "#ff7c43";
+
+
+                default:
+                    return "yellow"
+            }
+    })
+        // Restyle plots with new data
+    
+        Plotly.restyle("bar", "x", [trace1.x]);
+    
+        Plotly.restyle("bar", "y", [trace1.y]);
+    
+        Plotly.restyle("bar", "text", [trace1.text]);
+
+        Plotly.restyle("bar", "marker", [trace1.marker]);
+    })
+};
 init();
 
