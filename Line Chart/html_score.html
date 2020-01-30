@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="multiline.css">
+    <script src="https://d3js.org/d3.v3.js" charset="utf-8"></script>
+    <!--<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>-->
+</head>
+<body>
+<div class="chart-wrapper" id="chart-line1"></div>
+
+<script type="text/javascript">
+    d3.csv('happy_score_over_time.csv', function(error, data) {
+    data.forEach(function (d) {
+        d.year = +d.year;
+        d.China = +d.China;
+        d.United_States = +d.United_States;
+        d.India = +d.India;
+        d.Japan = +d.Japan;
+        d.Germany = +d.Germany;
+        d.Russia = +d.Russia;
+        d.Indonesia = +d.Indonesia;
+        d.Finland = +d.Finland;
+        d.Denmark = +d.Denmark;
+        d.Norway = +d.Norway;
+
+
+    });
+
+    var chart = makeLineChart(data, 'year', {
+        'China': {column: 'China'},
+        'United States': {column: 'United_States'},
+        'India': {column: 'India'},
+        'Japan': {column: 'Japan'},
+        'Germany': {column: 'Germany'},
+        'Russia': {column: 'Russia'},
+        'Indonesia': {column: 'Indonesia'},
+        'Finland': {column: 'Finland'},
+        'Denmark': {column: 'Denmark'},
+        'Norway': {column: 'Norway'}
+    }, {xAxis: 'Years', yAxis: 'Score'});
+    chart.bind("#chart-line1");
+    chart.render();
+
+});
+</script>
+<script src="multiline_score.js" charset="utf-8"></script>
+</body>
+</html>
