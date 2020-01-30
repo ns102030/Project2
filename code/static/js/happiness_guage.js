@@ -23,39 +23,36 @@ function guage(data,country_val,year_val)
                                         .position('outside')
                                         .format('{%Value}');
 
-                                gauge.data([score]);
-
+                                gauge.data(score);
                                 gauge.axis().scale()
                                         .minimum(0)
                                         .maximum(10)
-                                        .ticks({interval: 1})
-                                        .minorTicks({interval: 2});
+                                        .ticks({interval: 10})
+                                        .minorTicks({interval: 5});
 
-                                gauge.axis()
+                                        gauge.axis()
                                         .fill('#545f69')
                                         .width(1)
                                         .ticks({type: 'line', fill: 'white', length: 2});
-                                       
-                                value1=score.toFixed(2);
-                                //  // Set Chart Title
+
+                                gauge.title('Score' +
+                                        `<span style="color:black; font-size: 14px;"> ${score}</span>`);
+                                        
                                 gauge.title()
-                                        .enabled(true)
                                         .useHtml(true)
                                         .padding(0)
-                                        .text('Happiness Score<br>' +
-                                                `<span style="color: #212121; font-size: 12px">${value1}</span>`) 
-                                        .hAlign('center')   
-                                        .margin([0, 0, 10, 0]);  
+                                        .fontColor('#212121')
+                                        .hAlign('center')
+                                        .margin([0, 0, 10, 0]);
 
                                 gauge.needle()
-                                        // .enabled(true)
-                                       .stroke('2 #545f69')
+                                        .stroke('2 #545f69')
                                         .startRadius('5%')
                                         .endRadius('90%')
                                         .startWidth('0.1%')
                                         .endWidth('0.1%')
                                         .middleWidth('0.1%');
- 
+
                                 gauge.cap()
                                         .radius('3%')
                                         .enabled(true)
@@ -63,26 +60,45 @@ function guage(data,country_val,year_val)
 
                                 gauge.range(0, {
                                         from: 0,
-                                        to: 3,
+                                        to: 2,
                                         position: 'inside',
-                                        fill: '#dd2c00 0.4',
+                                        fill: '#D90500',
                                         startSize: 50,
                                         endSize: 50,
                                         radius: 98
                                 });
 
                                 gauge.range(1, {
-                                        from: 3,
-                                        to: 7,
+                                        from: 2,
+                                        to: 4,
                                         position: 'inside',
-                                        fill: '#ffa000 0.4',
+                                        fill: '#D54500',
                                         startSize: 50,
                                         endSize: 50,
                                         radius: 98
                                 });
 
                                 gauge.range(2, {
-                                        from: 7,
+                                        from: 4,
+                                        to: 6,
+                                        position: 'inside',
+                                        fill: '#008ACE',
+                                        startSize: 50,
+                                        endSize: 50,
+                                        radius: 98
+                                });
+
+                                gauge.range(3, {
+                                        from: 6,
+                                        to: 8,
+                                        position: 'inside',
+                                        fill: '#000FD5',
+                                        startSize: 50,
+                                        endSize: 50,
+                                        radius: 98
+                                });
+                                gauge.range(4, {
+                                        from: 8,
                                         to: 10,
                                         position: 'inside',
                                         fill: '#009900 0.4',
@@ -106,8 +122,7 @@ function guage(data,country_val,year_val)
                                         .offsetY('68%')
                                         .offsetX(90)
                                         .anchor('center');
-                                        
-                                gauge.label(3)
+                                        gauge.label(3)
                                         .text('Good')
                                         .fontColor('#212121')
                                         .fontSize(14)
@@ -117,7 +132,6 @@ function guage(data,country_val,year_val)
 
                                 gauge.container('guage');
                                 gauge.draw();
-                                
                         
 });
 }

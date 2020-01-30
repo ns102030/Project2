@@ -106,7 +106,7 @@ function init() {
     })
     build_world_map(2019);
     build_summary_table(2019,"United States");
-    // build_guage_chart(2019,"United States");
+    build_guage_chart(2019,"United States");
    
 }
 
