@@ -28,41 +28,6 @@
 </head>
 
 <body>
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
-
-  <!-- Landing Page-->
-  <div class="navigation">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" style="background-color: lightseagreen;" href="index.html">Home</a>
-      <button class="navbar-toggler  border border-white" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Plots
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="page_max_temp.html">Max Temperature</a>
-              <a class="dropdown-item" href="page_humidity.html">Humidity</a>
-              <a class="dropdown-item" href="page_cloudiness.html">Cloudiness</a>
-              <a class="dropdown-item" href="page_wind_speed.html">Wind Speed</a>
-            </div>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="page_comparisons.html">Comparison</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="page_data.html">Data</a>
-          </li>
-
-        </ul>
   <header class="header"> 
     <div class="header-content clearfix">
       <div class="row" id="selection">
@@ -74,6 +39,9 @@
           <select class="custom-select"id="selDatasetCountry" onchange="optionChangedTwo(this.value)">
             <option selected class="custom-option">Select Country</option>
           </select>
+          <form action="http://localhost:5000/top_ten">
+            <button type="submit" class="btn btn-success custom-btn">Happiest Countries</button>
+          </form>
         </div>
       </div>
     </div>
