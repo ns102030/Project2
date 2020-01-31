@@ -101,7 +101,7 @@ function init() {
                 automargin: true
             },
             title: {
-                text: `Happiest Countries: ${selectYear} <br> ${selectRegion}`
+                text: `Happiest Countries: <br> ${selectRegion}, ${selectYear}`
             },
             font: {
                 size: 15
@@ -212,7 +212,7 @@ function updatePlot() {
             };
     });
         var update = {
-            title: {text: `Happiest Countries: ${selectYear} <br> ${selectRegion}`}
+            title: {text: `Happiest Countries: <br> ${selectRegion}, ${selectYear}`}
         }
         // Restyle plots with new data
     
