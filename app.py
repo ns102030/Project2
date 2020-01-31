@@ -26,6 +26,10 @@ COLLECTION_NAME_CORRELATION = "correlation"
 def index():
     return render_template("index.html")
 
+@app.route("/top_ten")
+def top_ten():
+    return render_template("top_ten.html")
+
 #  Reading data from mongodb for worldmap   
 @app.route("/worldmap_data")
 def project2_worldmap_data():
