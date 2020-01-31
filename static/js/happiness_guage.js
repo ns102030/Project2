@@ -140,7 +140,7 @@ function guage_elements(score){
 	let trace = [{ type: 'scatter',
                         x: [0], 
                         y:[0],
-	                marker: {size: 12, color:'black'},
+	                marker: {size: 12, color:'brown'},
 	                showlegend: false,
 	                name: 'Happiness Score',
 	                text: score,
@@ -151,7 +151,7 @@ function guage_elements(score){
 	                  textinfo: 'text',
 	                  textposition:'inside',
 	                  textfont:{
-	                 size : 30,
+	                 size : 12,
 	                 },
                          marker: {colors:['#053061','#92c5de','#f4a582','#d6604d','#67001f','white']},
 	               
@@ -165,15 +165,15 @@ function guage_elements(score){
 	                shapes:[{
 					type: 'path',
 					path: path,
-	                fillcolor: 'black',
+	                fillcolor: 'brown',
 	                line: {
-	                        color: 'black'
+	                        color: 'brown'
 	                }
 	  }],
 
 	title: `<b> Happiness Score - ${v_score}</b> <br>${country_val}<br>${year_val}`,
-	height: 500,
-	width: 500,
+	height: 400,
+	width: 450,
 	xaxis: {zeroline:false, showticklabels:false,
 	           showgrid: false, range: [-1, 1]},
 	yaxis: {zeroline:false, showticklabels:false,

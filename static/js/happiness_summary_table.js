@@ -73,6 +73,8 @@ function summary_table(data,country_val,year_val)
               b: 100,
               t: 100,
           },
+          plot_bgcolor: 'white',
+		  paper_bgcolor: 'white',
       }
   
   
