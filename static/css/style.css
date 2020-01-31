@@ -1,20 +1,27 @@
-img{
-    width:100% ;
-    height:100% ;
+.header{
+	position: relative;
+	top: 0px;
+	z-index: 10000;
+	 width: 100%;
 }
 
-p{
-    color:black;
-    font-family: Arial;
-    font-size: 20px; 
+.header .header-content {
+	margin: auto;
+	padding: 5px;
+	background-color: rgb(0,0,0);
 }
 
-.table{
-    font-size: 12px; 
-    border-top-color: white; 
+.header-text {
+	font-family: "Source Sans Pro";
+	color: #ffffff;
+	font-size: 30px;
+	letter-spacing: 10px;
+	font-weight: 400;
+	margin: 0;
 }
 
 body{
+<<<<<<< HEAD
     background-color: lightgrey; 
 }
 
@@ -32,8 +39,15 @@ body{
     color:black;
     background-color: white;
 
+=======
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Barlow Condensed' , sans-serif;
+>>>>>>> 0ae55a3c4ff7e8d55fda63c84f541b0e92ac4d98
   }
+  
 
+<<<<<<< HEAD
 .navbar{
     max-height: 55px; 
 }
@@ -138,4 +152,51 @@ button{
     padding-bottom: 20px; 
   }
 
+=======
+  
+.custom-select{
+	  width: 15%;
+	  background-color: rgb(0,0,0);
+	  color: rgb(255,255,255);
+	  height: 30px;
+	  font-size: 80%;
+  }
+  
+  #guage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	filter: drop-shadow(1em 1em 1em rgba(0, 0, 0, 0.3));
+}
+  
+#summary_table{
+	/* width: 120;
+    height: 120;
+	filter: drop-shadow(1em 1em 1em rgba(0, 0, 0, 0.3)); */
+}  
+  
+  
+  
+.active {
+	font-weight: bold;
+	fill: #F1574D;
+	transition: fill 0.5s ease-out;
+	text-anchor: middle;
+  }
+  
+.inactive {
+	font-weight: lighter;
+	fill: #a9a9a9;
+	transition: fill 0.5s ease-out;
+	text-anchor: middle;
+  }
+  
+.inactive:hover {
+	fill: #000;
+	cursor: pointer;
+  }
+
+ 
+>>>>>>> 0ae55a3c4ff7e8d55fda63c84f541b0e92ac4d98
   
