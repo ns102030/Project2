@@ -19,11 +19,7 @@ COLLECTION_NAME_2016 = '2016_data'
 COLLECTION_NAME_2015 = '2015_data'
 COLLECTION_NAME_YEARS = 'years'
 COLLECTION_NAME_COUNTRY = 'countries'
-<<<<<<< HEAD
-# COLLECTION_NAME_CORRELATION = "correlation"
-=======
 COLLECTION_NAME_CORRELATION = "correlation"
->>>>>>> b72fbef132ec9dddc3c23126b06c5189d2296f69
 
 
 @app.route("/")
@@ -138,20 +134,6 @@ def project2_countries_data():
     connection.close()
     return json_variables_8
 
-<<<<<<< HEAD
-# @app.route("/correlation")
-# def project2_correlation_data():
-#     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
-#     collection = connection[DBS_NAME][COLLECTION_NAME_CORRELATION]
-#     input_variables_9 = collection.find()
-#     json_variables_9 = []
-#     for v in input_variables_9:
-#         json_variables_9.append(v)
-#     json_variables_9 = json.dumps(json_variables_9, default=json_util.default)
-#     connection.close()
-#     return json_variables_9
-
-=======
 @app.route("/correlation")
 def project2_correlation_data():
     connection = MongoClient(MONGODB_HOST, MONGODB_PORT)
@@ -163,7 +145,6 @@ def project2_correlation_data():
     json_variables_9 = json.dumps(json_variables_9, default=json_util.default)
     connection.close()
     return json_variables_9
->>>>>>> b72fbef132ec9dddc3c23126b06c5189d2296f69
 
 
 if __name__ == "__main__":
