@@ -37,7 +37,7 @@ function guage(score,year_val,country_val)
 	                  textinfo: 'text',
 	                  textposition:'inside',
 	                  textfont:{
-	                 size : 30,
+	                 size : 12,
 	                 },
                          marker: {colors:['#053061','#92c5de','#f4a582','#d6604d','#67001f','white']},
 	               
@@ -58,8 +58,8 @@ function guage(score,year_val,country_val)
 	  }],
 
 	title: `<b> Happiness Score - ${v_score}</b> <br>${country_val}<br>${year_val}`,
-	height: 500,
-	width: 500,
+	height: 400,
+	width: 450,
 	xaxis: {zeroline:false, showticklabels:false,
 	           showgrid: false, range: [-1, 1]},
 	yaxis: {zeroline:false, showticklabels:false,
