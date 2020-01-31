@@ -95,6 +95,10 @@ FIELDS_2015 = {
 def index():
     return render_template("index.html")
 
+@app.route("/top_ten")
+def top_ten():
+    return render_template("top_ten.html")
+
 #  Reading data from mongodb for worldmap   
 
 @app.route("/worldmap_data")
