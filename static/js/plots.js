@@ -10,6 +10,7 @@ function plots(data,year_val){
     country = [];
     for (i=0;i<data.length;i++){
         score.push(data[i].score);
+        country.push(data[i].country);
         gdp_temp.push(data[i].gdp);
         life_expct.push(data[i].health_life_expectancy);
         freedom.push(data[i].freedom);
