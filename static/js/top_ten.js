@@ -11,14 +11,14 @@ function init() {
         var scores = [];
         var regions_2019 = [];
         var allRegions = [];
-        var allYears = ["2019", "2018", "2017", "2016", "2015"]
+        var allYears = ["2019", "2018", "2017", "2016", "2015"];
         var regionSelections = d3.selectAll("#selRegion");
         var yearSelections = d3.selectAll("#selYear");
 
         for (entry in topTen) {
             for (regions in entriesWithRegions_2015) {
                 if (!allRegions.includes(entriesWithRegions_2015[regions].region)) {
-                    allRegions.push(entriesWithRegions_2015[regions].region)
+                    allRegions.push(entriesWithRegions_2015[regions].region);
                 }
                 if (topTen[entry].country == entriesWithRegions_2015[regions].country) {
                     topTen[entry].region = entriesWithRegions_2015[regions].region;
@@ -113,6 +113,7 @@ function init() {
     });
     
 };
+
 // Listens for event changes within "select" tag
 d3.selectAll("#plotSelection").on("click", updatePlot);
 
