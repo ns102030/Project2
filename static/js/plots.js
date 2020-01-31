@@ -7,16 +7,20 @@ function plots(data,year_val){
     freedom=[];
     generosity=[];
     corruption=[];
+    country = [];
     for (i=0;i<data.length;i++){
         score.push(data[i].score);
         gdp_temp.push(data[i].gdp);
-        life_expct.push(data[i].gdp);
+        life_expct.push(data[i].health_life_expectancy);
         freedom.push(data[i].freedom);
         generosity.push(data[i].generosity);
         corruption.push(data[i].perceptions_of_corruption);
+        country.push(data[i].country)
     }
     // console.log("Year in define function:",year_val);
     // Converting GDP data into float number
+
+    console.log(gdp_temp);
 
     // var gdp_temp = unpack(rows,'gdp_per_capita');
     var gdp = [];

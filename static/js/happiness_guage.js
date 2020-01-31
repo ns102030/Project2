@@ -6,7 +6,7 @@ function guage(year_val,country_val)
                 console.log("Inside anychart function");
                 // For the year 2015
                 if(year_val==2015){
-                        console.log("if statement for 2015");
+                        // console.log("if statement for 2015");
                         anychart.data.loadJsonFile("http://localhost:5000/2015_data",function(data){
                                 console.log("data loaded for 2015");
                                 var score=0;
@@ -24,7 +24,7 @@ function guage(year_val,country_val)
                 if(year_val==2016){
                         console.log("if statement for 2016");
                         anychart.data.loadJsonFile("http://localhost:5000/2016_data",function(data){
-                                console.log("data loaded for 2016");
+                                // console.log("data loaded for 2016");
                                 var score=0;
                                 for(i=0;i<data.length;i++)
                                 {
@@ -97,7 +97,7 @@ function guage(year_val,country_val)
 }
      
 function guage_elements(score){
-        console.log("I am in function2: guage_elements");
+        // console.log("I am in function2: guage_elements");
         var gauge = anychart.gauges.circular();
         gauge.fill('#fff')
                                         .stroke(null)
@@ -201,7 +201,7 @@ function guage_elements(score){
                                         .hAlign('center')   
                                         .margin([0, 0, 10, 0]);  
         gauge.container('guage');
-        console.log("Calling guage draw");
+        // console.log("Calling guage draw");
         // gauge.container(refresh);
         gauge.draw();
     
