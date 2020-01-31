@@ -26,7 +26,7 @@ function guage(score,year_val,country_val)
 	let trace = [{ type: 'scatter',
                         x: [0], 
                         y:[0],
-	                marker: {size: 12, color:'black'},
+	                marker: {size: 12, color:'brown'},
 	                showlegend: false,
 	                name: 'Happiness Score',
 	                text: score,
@@ -51,9 +51,9 @@ function guage(score,year_val,country_val)
 	                shapes:[{
 					type: 'path',
 					path: path,
-	                fillcolor: 'black',
+	                fillcolor: 'brown',
 	                line: {
-	                        color: 'black'
+	                        color: 'brown'
 	                }
 	  }],
 
