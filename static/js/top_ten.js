@@ -38,7 +38,7 @@ function init() {
         for (var i = 0; i < allYears.length; i++) {
             yearSelections.append("option")
             .text(allYears[i]);
-        }
+        };
         var trace1 = {
             x: scores.reverse(),
             y: countries.reverse(),
@@ -46,7 +46,7 @@ function init() {
             marker: {},
             type: "bar",
             orientation: "h"
-        }
+        };
         trace1.marker.color = trace1.text.map(function(region) {
             switch(region) {
                 case "Western Europe":
@@ -82,9 +82,12 @@ function init() {
 
                 default:
                     return "yellow"
-            }
+            };
             
-        })
+        });
+        var selectYear = d3.selectAll("#selYear").property("value");
+        var selectRegion = d3.selectAll("#selRegion").property("value");
+        
         var layout = {
             xaxis: {
                 title: "Happiness Score",
@@ -96,12 +99,18 @@ function init() {
             },
             yaxis: {
                 automargin: true
+            },
+            title: {
+                text: `Happiest Countries: ${selectYear} <br> ${selectRegion}`
+            },
+            font: {
+                size: 15
             }
-        }
+        };
 
         Plotly.newPlot("bar", [trace1], layout);
 
-    })
+    });
     
 };
 // Listens for event changes within "select" tag
@@ -112,7 +121,7 @@ function updatePlot() {
     var selectRegion = d3.selectAll("#selRegion").property("value");
 
     Promise.all([d3.json("http://localhost:5000/2015_data"), d3.json(`http://localhost:5000/${selectYear}_data`)])
-    .then(function(data){
+    .then(function(data) {
         data[1].sort((a, b) => (a.score > b.score) ? -1 : 1);
         var entriesWithRegions_2015 = data[0];
         if (selectRegion !== "All Regions") {
@@ -121,13 +130,13 @@ function updatePlot() {
                     for(entries in data[0]) {
                         if (entriesWithRegions_2015[entries].country == data[1][object].country) {
                             data[1][object].region = entriesWithRegions_2015[entries].region;
-                        }
-                    }
-                }
+                        };
+                    };
+                };
                 var filtered = data[1].filter(function(value, index, arr) {
                     return value.region == selectRegion;
-                }) 
-            }
+                }); 
+            };
             if (filtered.length > 10) {
                 filteredTopTen = filtered.slice(0, 10);
             } else {
@@ -136,7 +145,7 @@ function updatePlot() {
             var topTen = filteredTopTen;
         } else {
             var topTen = data[1].slice(0, 10);   
-            }
+            };
         var countries = [];
         var scores = [];
         var regions_selYear = [];
@@ -146,15 +155,15 @@ function updatePlot() {
             for (regions in entriesWithRegions_2015) {
                 if (!allRegions.includes(entriesWithRegions_2015[regions].region)) {
                     allRegions.push(entriesWithRegions_2015[regions].region)
-                }
+                };
                 if (topTen[entry].country == entriesWithRegions_2015[regions].country) {
                     topTen[entry].region = entriesWithRegions_2015[regions].region;
-                }
-            }
+                };
+            };
             countries.push(topTen[entry].country);
             scores.push(topTen[entry].score);
             regions_selYear.push(topTen[entry].region);
-        }
+        };
 
         var trace1 = {
             x: scores.reverse(),
@@ -163,7 +172,7 @@ function updatePlot() {
             marker: {},
             type: "bar",
             orientation: "h"
-        }
+        };
         trace1.marker.color = trace1.text.map(function(region) {
             switch(region) {
                 case "Western Europe":
@@ -199,8 +208,11 @@ function updatePlot() {
 
                 default:
                     return "yellow"
-            }
-    })
+            };
+    });
+        var update = {
+            title: {text: `Happiest Countries: ${selectYear} <br> ${selectRegion}`}
+        }
         // Restyle plots with new data
     
         Plotly.restyle("bar", "x", [trace1.x]);
@@ -210,7 +222,9 @@ function updatePlot() {
         Plotly.restyle("bar", "text", [trace1.text]);
 
         Plotly.restyle("bar", "marker", [trace1.marker]);
-    })
+
+        Plotly.relayout("bar", update);
+    });
 };
 init();
 
