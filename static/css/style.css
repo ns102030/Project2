@@ -64,11 +64,9 @@ body{
   }
 
  /* Media Queries */
- @media(max-width: 992px)
- {
-	body {
-		background-color:white;
-	  }
-
- }
+ @media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+}
   

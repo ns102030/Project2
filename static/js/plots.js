@@ -125,7 +125,7 @@ function plots(data,year_val){
     var trace5 = [{
         // type: 'scatter',
         x: score,
-        y: freedom,
+        y: generosity,
         text: country,
         mode: 'markers',
         opacity: 0.8,
