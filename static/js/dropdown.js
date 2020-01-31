@@ -42,47 +42,93 @@ function build_summary_table(year_val,country_val){
 
 }
 
-//Define and choose data to build Guage Chart
-// function build_guage_chart(year_val,country_val){
-//     console.log("I am in the define-function for guage");
-//     if(year_val==2015){
-//         d3.json("http://localhost:5000/2015_data").then ( data =>{
-//             guage(data,country_val,year_val);
-//             // console.log("Year in define function:",year_val);
-//     })
-//     }
-//     if(year_val==2016){
-//         d3.json("http://localhost:5000/2016_data").then ( data =>{
-//             guage(data,country_val,year_val);
-//             // console.log("Year in define function:",year_val);
-//     })
-//     }
-//     if(year_val==2017){
-//         d3.json("http://localhost:5000/2017_data").then ( data =>{
-//             guage(data,country_val,year_val);
-//             // console.log("Year in define function:",year_val);
-//     })
-//     }
-//     if(year_val==2018){
-//         d3.json("http://localhost:5000/2018_data").then ( data =>{
-//             guage(data,country_val,year_val);
-//             // console.log("Year in define function:",year_val);
-//     })
-//     }
-//     if(year_val==2019){
-//         d3.json("http://localhost:5000/2019_data").then ( data =>{
-//             guage(data,country_val,year_val);
-//             // console.log("Year in define function:",year_val);
-//     })
-//     }
+// Define and choose data to build Guage Chart
+function build_guage_chart(year_val,country_val){
 
-// }
+    console.log("I am in the define-function for guage");
+    // console.log(country_val);
+    if(year_val==2015){
+        console.log("first if")
+        d3.json("http://localhost:5000/2015_data").then ( data =>{
+            for(i=0;i<data.length;i++)
+                {
 
-// function build_guage_chart(year_val,country_val)
-// {
-//     guage(year_val,country_val);
-//     console.log("Calling Guage Function inside build_guage_chart function(init)");
-// }
+                    if(country_val==data[i].country)
+                    {
+                        score=data[i].score;
+                        ctry=data[i].country;
+
+                    }
+                }
+            // anychart.graphics.useAbsoluteReferences(false);
+            guage(score,year_val,country_val);
+            console.log("score to send:",score);
+            console.log("country to send:",country);
+            // console.log("Year in define function:",year_val);
+        })
+    }
+    //2016
+    if(year_val==2016){
+        d3.json("http://localhost:5000/2016_data").then ( data =>{
+            for(i=0;i<data.length;i++)
+                {
+                    if(country_val==data[i].country)
+                    {
+                        score=data[i].score;
+                    }
+                }
+            // anychart.graphics.useAbsoluteReferences(false);
+            guage(score,year_val,country_val);
+            console.log("Year in define function:",year_val);
+        })
+    }
+    //2017
+    if(year_val==2017){
+        d3.json("http://localhost:5000/2017_data").then ( data =>{
+            for(i=0;i<data.length;i++)
+                {
+                    if(country_val==data[i].country)
+                    {
+                        score=data[i].score;
+                    }
+                }
+            // anychart.graphics.useAbsoluteReferences(false);
+            guage(score,year_val,country_val);
+            console.log("Year in define function:",year_val);
+        })
+    }
+    //2018
+    if(year_val==2018){
+        d3.json("http://localhost:5000/2018_data").then ( data =>{
+            for(i=0;i<data.length;i++)
+                {
+                    if(country_val==data[i].country)
+                    {
+                        score=data[i].score;
+                    }
+                }
+            // anychart.graphics.useAbsoluteReferences(false);
+            guage(score,year_val,country_val);
+            console.log("Year in define function:",year_val);
+        })
+    }
+    //2019
+    if(year_val==2019){
+        d3.json("http://localhost:5000/2019_data").then ( data =>{
+            for(i=0;i<data.length;i++)
+                {
+                    if(country_val==data[i].country)
+                    {
+                        score=data[i].score;
+                    }
+                }
+            // anychart.graphics.useAbsoluteReferences(false);
+            guage(score,year_val,country_val);
+            console.log("Year in define function:",year_val);
+        })
+    }
+
+}
 
 //Define and choose data to build Plots - Irais
 function build_plots(year_val){
@@ -118,7 +164,6 @@ function build_plots(year_val){
     }
 }
 
-
 function init() {
     var selectorTwo = d3.select("#selDatasetYear");
 	d3.json("http://localhost:5000/years").then((year_data) => {
@@ -149,8 +194,9 @@ function init() {
     console.log("init summary table call");
     build_summary_table(2019,"United States");
     console.log("init guage chart call");
-    guage(2019,"United States");
+    build_guage_chart(2019,"United States");
     build_plots(2019);
+
    
 }
 
@@ -174,7 +220,8 @@ function optionChangedOne(selectedYear) {
     build_summary_table(year_change_value,selectedCountry);
     // console.log("Guage Chart call");
     console.log("guage chart refresh call");
-    guage(year_change_value,selectedCountry);
+    // anychart.graphics.useAbsoluteReferences(false);
+    build_guage_chart(year_change_value,selectedCountry);
     console.log("plots refresh call");
     build_plots(year_change_value,selectedCountry);
   }

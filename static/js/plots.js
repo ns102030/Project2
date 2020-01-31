@@ -9,8 +9,9 @@ function plots(data,year_val){
     corruption=[];
     for (i=0;i<data.length;i++){
         score.push(data[i].score);
+        country.push(data[i].country);
         gdp_temp.push(data[i].gdp);
-        life_expct.push(data[i].gdp);
+        life_expct.push(data[i].health_life_expectancy);
         freedom.push(data[i].freedom);
         generosity.push(data[i].generosity);
         corruption.push(data[i].perceptions_of_corruption);
