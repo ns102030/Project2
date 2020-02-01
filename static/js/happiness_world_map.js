@@ -23,9 +23,15 @@ function world_map(data,year_val){
 
     if(year_val ==2015){
         var data = [{type: 'choropleth',locationmode: 'country names',locations: country_data,
+        colorscale: [
+            [0,'rgb(95, 43, 127)'],[0.25,'rgb(162, 46, 114)'],
+            [0.5,'rgb(238, 85, 85)'], [0.75,'rgb(248, 153, 106)'],
+            [1,'rgb(252, 229, 167)']],
             z: score_data_2015,text: country_data,autocolorscale: false}];
         // Define the layout
-        var layout = {title: '2015',geo: {
+        var layout = {title: '2015', 
+            paper_bgcolor: 'rgb(253, 249, 240',
+            geo: {
             projection: {
                 type: 'robinson'
             }
@@ -36,9 +42,15 @@ function world_map(data,year_val){
     }
     else if(year_val ==2016){
         var data = [{type: 'choropleth',locationmode: 'country names',locations: country_data,
+        colorscale: [
+            [0,'rgb(95, 43, 127)'],[0.25,'rgb(162, 46, 114)'],
+            [0.5,'rgb(238, 85, 85)'], [0.75,'rgb(248, 153, 106)'],
+            [1,'rgb(252, 229, 167)']],
             z: score_data_2016,text: country_data,autocolorscale: false}];
         // Define the layout
-        var layout = {title: '2016',geo: {
+        var layout = {title: '2016', 
+            paper_bgcolor: 'rgb(253, 249, 240',
+            geo: {
             projection: {
                 type: 'robinson'
             }
@@ -48,9 +60,15 @@ function world_map(data,year_val){
     }
     else if(year_val ==2017){
         var data = [{type: 'choropleth',locationmode: 'country names',locations: country_data,
+        colorscale: [
+            [0,'rgb(95, 43, 127)'],[0.25,'rgb(162, 46, 114)'],
+            [0.5,'rgb(238, 85, 85)'], [0.75,'rgb(248, 153, 106)'],
+            [1,'rgb(252, 229, 167)']],
             z: score_data_2017,text: country_data,autocolorscale: false}];
         // Define the layout
-        var layout = {title: '2017',geo: {
+        var layout = {title: '2017', 
+            paper_bgcolor: 'rgb(253, 249, 240',
+            geo: {
             projection: {
                 type: 'robinson'
             }
@@ -60,9 +78,15 @@ function world_map(data,year_val){
     }
     else if(year_val ==2018){
         var data = [{type: 'choropleth',locationmode: 'country names',locations: country_data,
+        colorscale: [
+            [0,'rgb(95, 43, 127)'],[0.25,'rgb(162, 46, 114)'],
+            [0.5,'rgb(238, 85, 85)'], [0.75,'rgb(248, 153, 106)'],
+            [1,'rgb(252, 229, 167)']],
             z: score_data_2018,text: country_data,autocolorscale: false}];
         // Define the layout
-        var layout = {title: '2018',geo: {
+        var layout = {title: '2018',
+            paper_bgcolor: 'rgb(253, 249, 240',
+            geo: {
             projection: {
                 type: 'robinson'
             }
@@ -72,9 +96,15 @@ function world_map(data,year_val){
     }
     else if (year_val ==2019){
         var data = [{type: 'choropleth',locationmode: 'country names',locations: country_data,
+        colorscale: [
+            [0,'rgb(95, 43, 127)'],[0.25,'rgb(162, 46, 114)'],
+            [0.5,'rgb(238, 85, 85)'], [0.75,'rgb(248, 153, 106)'],
+            [1,'rgb(252, 229, 167)']],
             z: score_data_2019,text: country_data,autocolorscale: false}];
         // Define the layout
-        var layout = {title: '2019',geo: {
+        var layout = {title: '2019',
+            paper_bgcolor: '#F8F3ED',
+            geo: {
             projection: {
                 type: 'robinson'
             }

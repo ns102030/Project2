@@ -49,28 +49,28 @@ function init() {
         trace1.marker.color = trace1.text.map(function(region) {
             switch(region) {
                 case "Western Europe":
-                    return "rgba(114, 147, 203, 1)";
+                    return "#2F9599";
 
                 case "North America":
-                    return "rgba(225, 151, 76, 1)";
+                    return "#F7DB4F";
 
                 case "Australia and New Zealand":
-                    return "rgba(132, 186, 91, 1)";
+                    return "#F9CDAD";
 
                 case "Middle East and Northern Africa":
-                    return "rgba(211, 94, 96, 1)";
+                    return "#C8C8A9";
 
                 case "Latin America and Caribbean":
-                    return "rgba(128, 133, 133, 1)";
+                    return "#83AF9B";
 
                 case "Southeastern Asia":
-                    return "rgba(144, 103, 167, 1)";
+                    return "#45ADA8";
 
                 case "Central and Eastern Europe":
-                    return "rgba(171, 104, 87, 1)";
+                    return "#F7DB4F";
 
                 case "Eastern Asia":
-                    return "rgba(204, 194, 16, 1)";
+                    return "#547980";
 
                 case "Sub-Saharan Africa":
                     return "#a05195";
@@ -176,34 +176,35 @@ function updatePlot() {
         trace1.marker.color = trace1.text.map(function(region) {
             switch(region) {
                 case "Western Europe":
-                    return "rgba(114, 147, 203, 1)";
+                    return "#2F9599";
 
                 case "North America":
-                    return "rgba(225, 151, 76, 1)";
+                    return "#F7DB4F";
 
                 case "Australia and New Zealand":
-                    return "rgba(132, 186, 91, 1)";
+                    return "#F9CDAD";
 
                 case "Middle East and Northern Africa":
-                    return "rgba(211, 94, 96, 1)";
+                    return "#C8C8A9";
 
                 case "Latin America and Caribbean":
-                    return "rgba(128, 133, 133, 1)";
+                    return "#83AF9B";
 
                 case "Southeastern Asia":
-                    return "rgba(144, 103, 167, 1)";
+                    return "#45ADA8";
 
                 case "Central and Eastern Europe":
-                    return "rgba(171, 104, 87, 1)";
+                    return "#F7DB4F";
 
                 case "Eastern Asia":
-                    return "rgba(204, 194, 16, 1)";
+                    return "#547980";
 
                 case "Sub-Saharan Africa":
                     return "#a05195";
 
                 case "Southern Asia":
                     return "#ff7c43";
+
 
 
                 default:

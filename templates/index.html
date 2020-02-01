@@ -14,6 +14,10 @@
   <link rel="stylesheet" type="text/css" href="/static/css/style.css">
    <!-- Load plotly.js into the DOM -->
   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script> 
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Lato:700|Montserrat:700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image" href="https://www.pngitem.com/pimgs/m/115-1151650_happy-icon-happyface-face-emoji-smile-sonrisa-feliz.png">
+  
   <!-- <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-bundle.min.js"></script>
   <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js"></script>
@@ -32,24 +36,32 @@
     <div class="header-content clearfix">
       <div class="row" id="selection">
         <div class="col-md-12 text-center">
-          <h1 class="header-text text-center">World Happiness Dashboard</h1>
+          <div class="row mt-2"> </div>
+          <h1 class="header-text text-center">HOW HAPPY ARE YOU, WORLD?</h1>
+          <h4 class="subheader-text" >And interactive dashboard to answer existential questions of happiness</h4>
+          <div class="row mt-3"> </div>
+
           <select class="custom-select"id="selDatasetYear" onchange="optionChangedOne(this.value)">
             <option selected class="custom-option">Select Year</option>
           </select>
           <select class="custom-select"id="selDatasetCountry" onchange="optionChangedTwo(this.value)">
             <option selected class="custom-option">Select Country</option>
           </select>
+
+          <div class="row mt-3"> </div>
+
           <form action="http://localhost:5000/top_ten">
-            <button type="submit" class="btn btn-success custom-btn">Happiest Countries</button>
+            <button type="submit" class="btn btn-primary custom-btn">Happiest Regions and Countries</button>
           </form>
+          <div class="row mt-2"> </div>
         </div>
       </div>
     </div>
   </header>
   
   <div class="container">
-    <div class="row">
-      <div class="col"> 
+    <div class="row justify-content-lg center">
+      <div class="col-12"> 
         <div id='myDiv'>
           <!-- Our JS -->
           <script type="text/javascript" src="/static/js/happiness_world_map.js"></script>
@@ -57,38 +69,41 @@
       </div>
     </div>
 
-    <div class="row">
-          <div class="col"> 
+    <div class="row mt-2"> </div>
+
+    <div class="row justify-content-end">
+          <div class="col align-self-start"> 
           <!-- Summary Table JS -->
             <div id="summary_table">
             <script type="text/javascript" src="/static/js/happiness_summary_table.js"></script>
             </div>
          </div>
-         <div class="col"> 
-          <!-- Guage Chart -->
-          <!-- <script>anychart.graphics.useAbsoluteReferences(false);</script> -->
+         <div class="col">
           <div id="guage">
-            
             <script type="text/javascript" src="/static/js/happiness_guage.js"></script>
            </div>
         </div>
       </div>  
-  </div>
 
-  <div class="row">
-    <div class="col">
+      <div class="row mt-2"> </div>
+ 
+
+  <div class="row justify-content-center">
+    <div class="col-6">
       <div id="plot1">
         <script type="text/javascript" src="/static/js/plots.js"></script>
       </div>
     </div>
-    <div class="col">
+    <div class="col-6">
       <div id="plot3">
         <script type="text/javascript" src="/static/js/plots.js"></script>
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-2"> </div>
+
+  <div class="row justify-content-center">
     <div class="col">
       <div id="plot4">
         <script type="text/javascript" src="/static/js/plots.js"></script>
@@ -101,18 +116,23 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+
+  <div class="row mt-2"> </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
       <div id="plot6">
         <script type="text/javascript" src="/static/js/plots.js"></script>
       </div>
     </div>
-    <div class="col">
+    <!-- <div class="col"> -->
       <!-- <div id="corr"> -->
         <!-- <script type="text/javascript" src="/static/js/happiness_corr.js"></script> -->
       </div>
     </div>
   </div>
+
+  <div class="row mt-2"> </div>
 
   <div class="row">
     <div class="col">
@@ -121,7 +141,8 @@
       </div>
     </div>
   </div>
-
+</div>
+</div>
   <script type="text/javascript" src="/static/js/dropdown.js"></script>
 
   
