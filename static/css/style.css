@@ -1,0 +1,155 @@
+.header{
+	position: relative;
+	top: 0px;
+	z-index: 10000;
+	 width: 100%;
+}
+
+.header .header-content {
+	margin: auto;
+	padding: 5px;
+	background-color: #FAC67B;
+}
+
+.header-text {
+	font-family: 'Arvo', serif;
+	font-weight: 510;
+	color: #ffffff;
+	font-size: 40px;
+	letter-spacing: 5px;
+	margin: 0;
+	
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Barlow Condensed' , sans-serif;
+	background-color: #F8F3ED;
+  }
+  
+
+  
+.custom-select{
+	  width: 15%;
+	  background-color: #f39a56;
+	  color: rgb(255,255,255);
+	  height: 30px;
+	  font-size: 80%;
+	  font-family: 'Lato', sans-serif;
+  }
+  
+  #guage {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	/* filter: drop-shadow(1em 1em 1em rgba(0, 0, 0, 0.3)); */
+}
+ 
+.active {
+	font-weight: bold;
+	fill: #F1574D;
+	transition: fill 0.5s ease-out;
+	text-anchor: middle;
+  }
+  
+.inactive {
+	font-weight: lighter;
+	fill: #a9a9a9;
+	transition: fill 0.5s ease-out;
+	text-anchor: middle;
+  }
+  
+.inactive:hover {
+	fill: #000;
+	cursor: pointer;
+  }
+
+ /* Media Queries */
+ /* @media(max-width: 992px)
+ {
+	body {
+		background-color:black;
+	  }
+
+ } */
+
+.container {
+	background-color: #F8F3ED;
+	align-content: center;
+}
+
+.custom-btn {
+	background-color: #c72c41;
+	font-family: 'Lato', sans-serif;
+
+}
+
+.btn-success {
+	background-color: #b32442;
+}
+
+.subheader-text {
+	font-family: 'Lato', sans-serif;
+	color: #582841;
+	font-weight: 400;
+	font-size: 20;
+}
+
+.card {
+	background-color: #F8F3ED;
+}
+
+.card-header {
+	font-family: 'Montserrat', sans-serif;
+	color: #b32442;
+}
+
+.btn-info {
+	background-color: #b32442;
+	font-family: 'Lato', sans-serif;
+}
+
+
+.ct-series-a .ct-bar {
+    stroke: #A8E6CE;
+  }
+  
+.ct-series-b .ct-bar {
+    stroke: #DCEDC2 ;
+  }
+  
+.ct-series-c .ct-bar {
+    stroke: #FFD3B5 ;
+  }
+  
+  .ct-series-d .ct-bar {
+    stroke: #FFAAA6 ;
+  }
+  
+  .ct-series-e .ct-bar {
+    stroke: #FF8C94;
+
+  }
+
+  .ct-series-f .ct-bar {
+    stroke: #D9ECF2;
+
+  }
+
+  .ct-series-g .ct-bar {
+    stroke: #D9ECF2;
+
+  }
+
+  .ct-label {
+      font: bold;
+      font-weight: bolder;
+      font-family: Arial, Helvetica, sans-serif;
+}
+
+.ct-label.ct-vertical.ct-start {
+    height: 44px;
+    width: 30px;
+}

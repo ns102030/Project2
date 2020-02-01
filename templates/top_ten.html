@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Happiness Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Load d3.js-->
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <!-- Load CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+   <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script> 
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Lato:700|Montserrat:700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image" href="https://www.pngitem.com/pimgs/m/115-1151650_happy-icon-happyface-face-emoji-smile-sonrisa-feliz.png">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  
+</head>
+
+<body>
+  <header class="header"> 
+    <div class="header-content clearfix">
+      <div class="row" id="selection">
+        <div class="col-md-12 text-center">
+          <div class="row mt-2"> </div>
+          <h1 class="header-text text-center">HOW HAPPY ARE YOU, WORLD?</h1>
+          <div class="row mt-3"> </div>
+          <form action="http://localhost:5000/">
+            <button type="submit" class="btn btn-primary custom-btn">Home</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container" style="margin-top: 3%;">
+    <div class="row">
+        <div class="col">
+          <div class="card ">
+            <h5 class="card-header">Select a Region:</h5>
+            <div class="row mt-2"> </div>
+            <select class="custom-select" style="width: 40%; margin-left: 2%;" id="selRegion"></select>
+            <div class="row mt-2"> </div>
+            
+            <div class="col"></div>
+            <h5 class="card-header">Select a Year::</h5>
+            <div class="row mt-2"> </div>
+            <select class="custom-select" style="margin-left: 2%;" id="selYear"></select>
+            <div class="row mt-2"> </div>
+          </div>
+
+          <div class="row mt-2"> </div>
+          <button style="width: 20%; margin-left: 2%; margin-bottom: 2%;" id="plotSelection" class="btn btn-info" type="button">View</button>
+          <div class="card text-white" >
+            <div class="card-body center">
+              <div id="bar"></div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row"> 
+      <div class="col">
+
+        <div class="ct-chart ct-perfect-fourth"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/static/js/top_ten.js"></script>
+
+  <!-- <div> <img src="static/img/legend.png" alt="legend">  </div> -->
+
+  <script>
+    d3.json("http://localhost:5000/2019_data").then ( data =>{
+          countries_temp=[];
+          social_temp=[];
+          health_temp=[];
+          free_temp=[];
+          gen_temp=[];
+          per_temp=[];
+          gdp_temp=[];
+          score_temp=[];
+    
+        for(i=0;i<data.length;i++)
+        {
+          // Temporary variables to store data pulled directly from csv
+          countries_temp.push(data[i].country);
+          social_temp.push(data[i].social_support);
+          health_temp.push(data[i].health_life_expectancy);
+          free_temp.push(data[i].freedom);
+          gen_temp.push(data[i].generosity);
+          per_temp.push(data[i].perceptions_of_corruption);
+          gdp_temp.push(data[i].gdp);
+          score_temp.push(data[i].score);
+        }
+  
+          // Arrays to store the csv data in float type
+          var countries = [];
+          var social = [];
+          var health = [];
+          var free = [];
+          var gen = [];
+          var per = [];
+          var gdp = []
+          var score = [];
+  
+        for(var i=0; i<20; i++) {
+          score.push(parseFloat((score_temp[i])));
+          countries.push(countries_temp[i]);
+          social.push(parseFloat((social_temp[i])));
+          health.push(parseFloat((health_temp[i])));
+          free.push(parseFloat((free_temp[i])));
+          gen.push(parseFloat((gen_temp[i])));
+          per.push(parseFloat((per_temp[i])));
+          gdp.push(parseFloat((gdp_temp[i])));
+        }
+        // Residual is any remaining part of the score not determined by the factors lister
+           var residual = [];
+        // To calculate residual
+        for(var i=0; i<20; i++) {
+          residual.push(
+            score[i]-social[i]-health[i]-free[i]-gen[i]-per[i]-gdp[i]
+            );
+        }
+        // console.log(residual);
+        var rev_countries = countries.reverse();
+        // console.log(rev_countries);
+        new Chartist.Bar('.ct-chart', {
+          labels: countries,
+          series: [
+            // { "name": "Money A", "data": [60000, 40000, 80000, 70000] },
+            gdp.reverse(),
+            social.reverse(),
+            health.reverse(),
+            free.reverse(),
+            gen.reverse(),
+            per.reverse(),
+            residual.reverse()
+          ]
+        }, {
+          stackBars: true,
+          horizontalBars: true,
+          axisY: {
+            countries
+            },
+          },
+        ).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 25px'
+            });
+          }
+        });
+      })
+  </script>  
+
+
+
+</body>
+
+<footer class="footer" style="background-color: crimson;">
+</footer>
+</html>

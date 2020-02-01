@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Happiness Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Load d3.js-->
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <!-- Load CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+   <!-- Load plotly.js into the DOM -->
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script> 
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Lato:700|Montserrat:700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image" href="https://www.pngitem.com/pimgs/m/115-1151650_happy-icon-happyface-face-emoji-smile-sonrisa-feliz.png">
+  
+  <!-- <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-bundle.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-data-adapter.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-circular-gauge.min.js?hcode=c11e6e3cfefb406e8ce8d99fa8368d33"></script>
+  <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet">
+  <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css?hcode=c11e6e3cfefb406e8ce8d99fa8368d33" type="text/css" rel="stylesheet"> -->
+  
+</head>
+
+<body>
+  <header class="header"> 
+    <div class="header-content clearfix">
+      <div class="row" id="selection">
+        <div class="col-md-12 text-center">
+          <div class="row mt-2"> </div>
+          <h1 class="header-text text-center">HOW HAPPY ARE YOU, WORLD?</h1>
+          <h4 class="subheader-text" >And interactive dashboard to answer existential questions of happiness</h4>
+          <div class="row mt-3"> </div>
+
+          <select class="custom-select"id="selDatasetYear" onchange="optionChangedOne(this.value)">
+            <option selected class="custom-option">Select Year</option>
+          </select>
+          <select class="custom-select"id="selDatasetCountry" onchange="optionChangedTwo(this.value)">
+            <option selected class="custom-option">Select Country</option>
+          </select>
+
+          <div class="row mt-3"> </div>
+
+          <form action="http://localhost:5000/top_ten">
+            <button type="submit" class="btn btn-primary custom-btn">Happiest Regions and Countries</button>
+          </form>
+          <div class="row mt-2"> </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="row justify-content-lg center">
+      <div class="col-12"> 
+        <div id='myDiv'>
+          <!-- Our JS -->
+          <script type="text/javascript" src="/static/js/happiness_world_map.js"></script>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2"> </div>
+
+    <div class="row justify-content-end">
+          <div class="col align-self-start"> 
+          <!-- Summary Table JS -->
+            <div id="summary_table">
+            <script type="text/javascript" src="/static/js/happiness_summary_table.js"></script>
+            </div>
+         </div>
+         <div class="col">
+          <div id="guage">
+            <script type="text/javascript" src="/static/js/happiness_guage.js"></script>
+           </div>
+        </div>
+      </div>  
+
+      <div class="row mt-2"> </div>
+ 
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div id="plot1">
+        <script type="text/javascript" src="/static/js/plots.js"></script>
+      </div>
+    </div>
+    <div class="col-6">
+      <div id="plot3">
+        <script type="text/javascript" src="/static/js/plots.js"></script>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2"> </div>
+
+  <div class="row justify-content-center">
+    <div class="col">
+      <div id="plot4">
+        <script type="text/javascript" src="/static/js/plots.js"></script>
+      </div>
+    </div>
+    <div class="col">
+      <div id="plot5">
+        <script type="text/javascript" src="/static/js/plots.js"></script>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-2"> </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <div id="plot6">
+        <script type="text/javascript" src="/static/js/plots.js"></script>
+      </div>
+    </div>
+    <!-- <div class="col"> -->
+      <!-- <div id="corr"> -->
+        <!-- <script type="text/javascript" src="/static/js/happiness_corr.js"></script> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-2"> </div>
+
+  <div class="row">
+    <div class="col">
+      <div id="corr">
+        <script type="text/javascript" src="/static/js/happiness_corr.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  <script type="text/javascript" src="/static/js/dropdown.js"></script>
+
+  
+</body>
+</html>
