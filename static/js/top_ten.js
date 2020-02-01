@@ -3,7 +3,7 @@ function init() {
     Promise.all([d3.json("http://localhost:5000/2015_data"), d3.json("http://localhost:5000/2019_data")])
     .then(function(data) {
         data[1].sort((a, b) => (a.score > b.score) ? -1 : 1);
-        console.log(data[1]); 
+        // console.log(data[1]); 
         var topTen = data[1].slice(0, 10);
         var entriesWithRegions_2015 = data[0];
         var countries = [];

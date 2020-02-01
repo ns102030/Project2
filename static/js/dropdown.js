@@ -1,3 +1,65 @@
+function init() {
+    var selectorTwo = d3.select("#selDatasetYear");
+	d3.json("http://localhost:5000/years").then((year_data) => {
+    year_data.forEach((rec) => {
+        year_value=rec.years;
+        // console.log(year_value);
+		selectorTwo
+        .append("option")
+        .text(year_value)
+        .property("value", year_value);
+    });
+    })
+    
+    var selectorThree = d3.select('#selDatasetCountry');
+    d3.json("http://localhost:5000/countries").then((country_data) => {
+    country_data.forEach((rec) => {
+        country_value=rec.country_name;
+        // console.log(country_value);
+		selectorThree
+        .append("option")
+        .text(country_value)
+        .property("value", country_value);
+
+    });
+    })
+    // console.log("init world map call");
+    build_world_map(2019);
+    // console.log("init summary table call");
+    build_summary_table(2019,"United States");
+    // console.log("init guage chart call");
+    build_guage_chart(2019,"United States");
+    build_plots(2019);
+    stacked();
+
+   
+}
+
+function optionChangedOne(selectedYear) {
+    // Declaring a global variable to have access to year when country is chosen
+    year_change_value=selectedYear;
+    // console.log(selectedYear);
+    d3.select('#myDiv').html("");
+    // console.log("world map refresh call");
+    build_world_map(selectedYear);
+    // build_plots(selectedYear);
+    
+  }
+  
+  function optionChangedTwo(selectedCountry) {
+    ctry_change_value=selectedCountry;
+
+    // console.log(selectedCountry);
+    // console.log("Year change value",year_change_value)
+    console.log("summary table refresh call");
+    build_summary_table(year_change_value,selectedCountry);
+    // console.log("Guage Chart call");
+    console.log("guage chart refresh call");
+    // anychart.graphics.useAbsoluteReferences(false);
+    build_guage_chart(year_change_value,selectedCountry);
+    // console.log("plots refresh call");
+    build_plots(year_change_value,selectedCountry);
+  }
 //Define worldmap function
 function build_world_map(year_val) {
     // console.log("I am in worldmap function_1")
@@ -164,66 +226,38 @@ function build_plots(year_val){
     }
 }
 
-function init() {
-    var selectorTwo = d3.select("#selDatasetYear");
-	d3.json("http://localhost:5000/years").then((year_data) => {
-    year_data.forEach((rec) => {
-        year_value=rec.years;
-        // console.log(year_value);
-		selectorTwo
-        .append("option")
-        .text(year_value)
-        .property("value", year_value);
-    });
+//Define and choose data to build Plots - Irais
+function build_region(year_val,country_val){
+    if(year_val==2015){
+        d3.json("http://localhost:5000/2015_data").then ( data =>{
+            region(data,year_val,country_val);
+            // console.log("Year in define function:",year_val);
     })
-    
-    var selectorThree = d3.select('#selDatasetCountry');
-    d3.json("http://localhost:5000/countries").then((country_data) => {
-    country_data.forEach((rec) => {
-        country_value=rec.country_name;
-        // console.log(country_value);
-		selectorThree
-        .append("option")
-        .text(country_value)
-        .property("value", country_value);
-
-    });
+    }
+    if(year_val==2016){
+        d3.json("http://localhost:5000/2016_data").then ( data =>{
+            region(data,year_val,country_val);
+            // console.log("Year in define function:",year_val);
     })
-    console.log("init world map call");
-    build_world_map(2019);
-    console.log("init summary table call");
-    build_summary_table(2019,"United States");
-    console.log("init guage chart call");
-    build_guage_chart(2019,"United States");
-    build_plots(2019);
-
-   
+    }
+    if(year_val==2017){
+        d3.json("http://localhost:5000/2017_data").then ( data =>{
+            region(data,year_val,country_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2018){
+        d3.json("http://localhost:5000/2018_data").then ( data =>{
+            region(data,year_val,country_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
+    if(year_val==2019){
+        d3.json("http://localhost:5000/2019_data").then ( data =>{
+            region(data,year_val,country_val);
+            // console.log("Year in define function:",year_val);
+    })
+    }
 }
-
-function optionChangedOne(selectedYear) {
-    // Declaring a global variable to have access to year when country is chosen
-    year_change_value=selectedYear;
-    // console.log(selectedYear);
-    d3.select('#myDiv').html("");
-    console.log("world map refresh call");
-    build_world_map(selectedYear);
-    // build_plots(selectedYear);
-    
-  }
-  
-  function optionChangedTwo(selectedCountry) {
-    ctry_change_value=selectedCountry;
-
-    // console.log(selectedCountry);
-    // console.log("Year change value",year_change_value)
-    console.log("summary table refresh call");
-    build_summary_table(year_change_value,selectedCountry);
-    // console.log("Guage Chart call");
-    console.log("guage chart refresh call");
-    // anychart.graphics.useAbsoluteReferences(false);
-    build_guage_chart(year_change_value,selectedCountry);
-    console.log("plots refresh call");
-    build_plots(year_change_value,selectedCountry);
-  }
 
 init();

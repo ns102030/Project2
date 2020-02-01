@@ -29,16 +29,16 @@ function summary_table(data,country_val,year_val)
       header: {
           values: [["Factors"],["Value"]],
           align: ["center", "center"],
-          height: 25,
+          height: 30,
           line: {
               width: 1, 
-              color: 'black'
+              color: '#2d142c'
               },
           fill: {
-              color: 'black'
+              color: '#510a32'
               },
           font: {
-              family: "'Barlow Condensed' , 'sans-serif'", 
+              family: "'Montserrat', 'sans-serif'", 
               size: 17, 
               color: "white"
               }
@@ -48,17 +48,19 @@ function summary_table(data,country_val,year_val)
           values: data_array,
           align: ["left", "center"],
           height: 25    ,
-          width: 25,
+          width: 40,
           line: {
-              color: "black",
+              color: "#2d142c",
               width: 1
               },
           fill: {
               color: ['white', 'white']
               },
           font: {
-              family: "'Barlow Condensed' , 'sans-serif'", 
-              size: 15, 
+              family: "'Montserrat', 'sans-serif'", 
+              size: 13,
+              weight: 20,
+              color: "#C72C41"
               }
           }
       }]
@@ -73,7 +75,7 @@ function summary_table(data,country_val,year_val)
               b: 100,
               t: 100,
           },
-          plot_bgcolor: 'white',
+          plot_bgcolor: 'black',
 		  paper_bgcolor: 'white',
       }
   

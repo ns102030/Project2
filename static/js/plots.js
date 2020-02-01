@@ -7,6 +7,7 @@ function plots(data,year_val){
     freedom=[];
     generosity=[];
     corruption=[];
+    country = [];
     for (i=0;i<data.length;i++){
         score.push(data[i].score);
         country.push(data[i].country);
@@ -15,9 +16,12 @@ function plots(data,year_val){
         freedom.push(data[i].freedom);
         generosity.push(data[i].generosity);
         corruption.push(data[i].perceptions_of_corruption);
+        country.push(data[i].country)
     }
     // console.log("Year in define function:",year_val);
     // Converting GDP data into float number
+
+    console.log(gdp_temp);
 
     // var gdp_temp = unpack(rows,'gdp_per_capita');
     var gdp = [];
@@ -28,7 +32,7 @@ function plots(data,year_val){
 
     // Multiplying GDP array by 30 to make size larger
     var gdp_size = gdp.map(function(element) {
-        return element*20;
+        return element*10;
     });
 
     //GDP vs Score
@@ -41,7 +45,7 @@ function plots(data,year_val){
         mode: 'markers',
         opacity: 0.8,
         marker: {
-            color: 'rgb(149, 222, 183)',
+            color: '#CC2A49',
             size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
@@ -53,8 +57,8 @@ function plots(data,year_val){
       var layout = {
         title: 'GDP and Happiness',
         autosize: false,
-      width: 700,
-      height: 500,
+      width: 495,
+      height: 450,
       yaxis: {
           title: 'GDP per Capita'
       }
@@ -71,7 +75,7 @@ function plots(data,year_val){
     mode: 'markers',
     opacity: 0.8,
     marker: {
-        color: 'rgb(149, 188, 222)',
+        color: '#582840',
         size: gdp_size,
         line: {
             color: 'rgb(20, 10, 46)',
@@ -83,8 +87,8 @@ function plots(data,year_val){
   var layout3 = {
     title: 'Health Life Expectancy and Happiness',
     autosize: false,
-    width: 700,
-    height: 500,
+    width: 495,
+    height: 450,
     yaxis: {
         title: 'Health'
     }
@@ -100,7 +104,7 @@ function plots(data,year_val){
         mode: 'markers',
         opacity: 0.8,
         marker: {
-            color: 'rgb(149, 152, 222)',
+            color: '#EF4648',
             size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
@@ -112,8 +116,8 @@ function plots(data,year_val){
       var layout4 = {
         title: 'Freedom to Make Life Choices and Happiness',
         autosize: false,
-        width: 700,
-        height: 500,
+        width: 495,
+        height: 450,
         yaxis: {
             title: 'Freedom'
         }
@@ -125,12 +129,12 @@ function plots(data,year_val){
     var trace5 = [{
         // type: 'scatter',
         x: score,
-        y: generosity,
+        y: freedom,
         text: country,
         mode: 'markers',
         opacity: 0.8,
         marker: {
-            color: 'rgb(183, 149, 222)',
+            color: '#F36F38',
             size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
@@ -142,8 +146,8 @@ function plots(data,year_val){
       var layout5 = {
         title: 'Generosity and Happiness',
         autosize: false,
-        width: 700,
-        height: 500,
+        width: 495,
+        height: 450,
         yaxis: {
             title: 'Generosity'
         }
@@ -159,7 +163,7 @@ function plots(data,year_val){
         mode: 'markers',
         opacity: 0.8,
         marker: {
-            color: 'rgb(219, 149, 222)',
+            color: '#F99E4C',
             size: gdp_size,
             line: {
                 color: 'rgb(20, 10, 46)',
@@ -171,8 +175,8 @@ function plots(data,year_val){
       var layout6 = {
         title: 'Perceptions of Corruption and Happiness',
         autosize: false,
-        width: 700,
-        height: 500,
+        width: 495,
+        height: 450,
         yaxis: {
             title: 'Trust'
         }

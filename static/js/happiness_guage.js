@@ -37,20 +37,22 @@ function guage(score,year_val,country_val)
 	                  textinfo: 'text',
 	                  textposition:'inside',
 	                  textfont:{
-	                 size : 12,
+					 size : 12,
 	                 },
-                         marker: {colors:['#053061','#92c5de','#f4a582','#d6604d','#67001f','white']},
+                         marker: {colors:['#C73866','#FE676E','#ffdba2','#FFBD71','#FD8F52','white']},
 	               
 	                hoverinfo: 'text',
 	                hole: .5,
 	                type: 'pie',
-	                showlegend: false
+					showlegend: false,
 	}];
 
 	let layout = {
 	                shapes:[{
 					type: 'path',
 					path: path,
+					plot_bgcolor:"#F8F3ED",
+					paper_bgcolor: '#F8F3ED',
 	                fillcolor: 'brown',
 	                line: {
 	                        color: 'brown'
