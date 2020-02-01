@@ -151,5 +151,13 @@ body{
 
 .ct-label.ct-vertical.ct-start {
     height: 44px;
-    width: 30px;
+	width: 30px;
+	/* white-space:nowrap; */
+	
+}
+
+.ct-chart{
+	height: 500px;
+	width: 20px;
+
 }
